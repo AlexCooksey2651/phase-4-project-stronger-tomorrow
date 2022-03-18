@@ -6,6 +6,22 @@ function LoginForm() {
   
   function handleSubmit(e) {
     e.preventDefault()
+    fetch('/login', {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify( 
+            { email, password }
+        ),
+    })
+        .then(resp => {
+            if (resp.ok) {
+                resp.json().then(user)
+            } else {
+                resp.json().then(err => setErrors(err.errors));
+            }
+        });
   }
 
   return (
