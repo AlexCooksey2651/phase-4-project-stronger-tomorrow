@@ -1,0 +1,2 @@
+class LiftSessionsController < ApplicationController
+end
