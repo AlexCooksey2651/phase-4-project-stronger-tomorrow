@@ -1,10 +1,24 @@
-// import logo from 'client/src/logo.svg';
-// import 'client/src/App.css';
+// import logo from '../logo.svg';
+// import '../App.css';
 
 import React from "react"
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom"
-import Login from "./Login"
+import { BrowserRouter as Routes, Route } from "react-router-dom"
+import Login from "../pages/Login"
+import SignUpForm from "./SignUpForm"
+import NewLiftForm from "./NewLiftForm"
 
+// function App() {
+//   return (
+//     <div className="App">
+//       <Routes>
+//         <Route path='/' element={<Login />} />
+//       </Routes>
+//     </div>
+//   );
+// }
+export default App;
+
+// RESOURCES:
 // const rmConverter = {
 //   1: 1,
 //   2: 0.95,
@@ -53,37 +67,26 @@ import Login from "./Login"
 
 // source : https://complementarytraining.net/set-and-rep-schemes-in-strength-training/
 
-// function App() {
-//   return (
-//     <div className="App">
-//       <header className="App-header">
-//         <img src={logo} className="App-logo" alt="logo" />
-//         <p>
-//           Edit <code>src/App.js</code> and save to reload.
-//         </p>
-//         <a
-//           className="App-link"
-//           href="https://reactjs.org"
-//           target="_blank"
-//           rel="noopener noreferrer"
-//         >
-//           Learn React
-//         </a>
-//       </header>
-//     </div>
-//   );
-// }
-
 function App() {
   return (
     <div className="App">
-      <Router>
-        <Routes>
-          <Route path='/' element={<Login />} />
-        </Routes>
-      </Router>
+      {/* <header className="App-header">
+        <img src={logo} className="App-logo" alt="logo" />
+        <p>
+          Edit <code>src/App.js</code> and save to reload.
+        </p>
+        <a
+          className="App-link"
+          href="https://reactjs.org"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Learn React
+        </a>
+      </header> */}
+      Alex
+      <SignUpForm />
+      <NewLiftForm />
     </div>
   );
 }
-
-export default App;

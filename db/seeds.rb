@@ -9,4 +9,4 @@ Lift.create(name: "Flat Barbell Bench Press")
 Lift.create(name: "Barbell Overhead Press")
 Lift.create(name: "Back Squat")
 Lift.create(name: "Barbell Deadlift")
-Lift.create(name: "Pullup")f
+Lift.create(name: "Pullup")
