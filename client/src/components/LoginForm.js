@@ -1,11 +1,14 @@
 import React, { useState } from 'react'
 
-function LoginForm() {
+function LoginForm({ onLogin }) {
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
+  const [errors, setErrors] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
   
   function handleSubmit(e) {
     e.preventDefault()
+    setIsLoading(true);
     fetch('/login', {
         method: "POST",
         headers: {
@@ -16,8 +19,9 @@ function LoginForm() {
         ),
     })
         .then(resp => {
+            setIsLoading(false)
             if (resp.ok) {
-                resp.json().then(user)
+                resp.json().then(user => onLogin(user))
             } else {
                 resp.json().then(err => setErrors(err.errors));
             }
@@ -42,8 +46,9 @@ function LoginForm() {
             onChange={e => setPassword(e.target.value)}
           />
         </label>
+        <button type="submit">Login</button>
     </form>
   )
 }
 
-export default LoginForm
+export default LoginForm;

@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   
-  resources :lifts, only: 
+  resources :lifts
   resources :lift_sessions
   resources :users, only: [:update]
   # Routing logic: fallback requests for React Router.

@@ -1,21 +1,42 @@
-// import logo from '../logo.svg';
-// import '../App.css';
-
-import React from "react"
-import { BrowserRouter as Routes, Route } from "react-router-dom"
+import React, { useState, useEffect } from "react"
+import { Route, Switch } from "react-router-dom";
 import Login from "../pages/Login"
-import SignUpForm from "./SignUpForm"
-import NewLiftForm from "./NewLiftForm"
+import NavBar from "./NavBar"
+import RecordNewLift from "../pages/RecordNewLift"
+import Dashboard from "../pages/Dashboard"
+import Profile from "../pages/Profile"
 
-// function App() {
-//   return (
-//     <div className="App">
-//       <Routes>
-//         <Route path='/' element={<Login />} />
-//       </Routes>
-//     </div>
-//   );
-// }
+function App() {
+  const [user, setUser] = useState(null);
+  
+  useEffect(() => {
+    fetch('/me').then((r) => {
+      if (r.ok) {
+        r.json().then((user) => setUser(user));
+      }
+    })
+  }, [])
+
+  if (!user) return <Login onLogin={setUser} />
+
+  return (
+    <div className="App">
+      <NavBar user={user} setUser={setUser}/>
+      <Switch >
+        <Route exact path="/dashboard">
+          <Dashboard />
+        </Route>
+        <Route exact path="/record_new_lift">
+          <RecordNewLift />
+        </Route>
+        <Route exact path="/profile">
+          <Profile user={user}/>
+        </Route>
+      </Switch>
+    </div>
+  );
+}
+
 export default App;
 
 // RESOURCES:
@@ -67,26 +88,3 @@ export default App;
 
 // source : https://complementarytraining.net/set-and-rep-schemes-in-strength-training/
 
-function App() {
-  return (
-    <div className="App">
-      {/* <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header> */}
-      Alex
-      <SignUpForm />
-      <NewLiftForm />
-    </div>
-  );
-}

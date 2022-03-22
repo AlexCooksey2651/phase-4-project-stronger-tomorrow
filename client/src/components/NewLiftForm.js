@@ -8,11 +8,32 @@ function NewLiftForm() {
 
   function handleSubmit(e) {
     e.preventDefault()
+    fetch('/lift_sessions', {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify(
+            {
+                lift,
+                date,
+                reps,
+                weight
+            }
+        )
+    })
   }
 
   return (
     <form id="newLiftForm" onSubmit={handleSubmit}>
         <label for="lift">Lift:
+          <select required name="lift" onChange={e => setLift(e.target.value)}>
+              <option value="Flat Barbell Bench Press">Flat Barbell Bench Press</option>
+              <option value="Barbell Overhead Press">Barbell Overhead Press</option>
+              <option value="Back Squat">Back Squat</option>
+              <option value="Barbell Deadlift">Barbell Deadlift</option>
+              <option value="Pullup">Pullup</option>
+          </select>
           <input required
             type="text"
             name="lift"
@@ -45,8 +66,9 @@ function NewLiftForm() {
           />
           pounds
         </label>
+        <button type="submit">Submit</button>
     </form>
   )
 }
 
-export default NewLiftForm
+export default NewLiftForm;

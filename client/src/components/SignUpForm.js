@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 
-function SignUpForm() {
+function SignUpForm({ onLogin }) {
   const [firstName, setFirstName] = useState("")
   const [lastName, setLastName] = useState("")
   const [email, setEmail] = useState("")
@@ -9,10 +9,39 @@ function SignUpForm() {
   const [age, setAge] = useState("")
   const [height, setHeight] = useState("")
   const [bodyweight, setBodyweight] = useState("")
+  const [errors, setErrors] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
   // const [sex, setSex] = useState("")
 
   function handleSubmit(e) {
     e.preventDefault()
+    setErrors([])
+    setIsLoading(true)
+    fetch('/signup', {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        first_name: firstName,
+        last_name: lastName,
+        email,
+        password,
+        password_confirmation: passwordConfirmation,
+        age,
+        height,
+        weight: bodyweight,
+      })
+    })
+      .then(r => {
+        setIsLoading(false);
+        if (r.ok) {
+          r.json().then(user => {
+            onLogin(user)
+            console.log(user)
+          })
+        }
+      })
   }
 
 
@@ -83,6 +112,7 @@ function SignUpForm() {
             onChange={e => setBodyweight(e.target.value)}
           /> pounds
         </label>
+        <button type="submit">Submit</button>
       </form>
     </div>
   )

@@ -11,3 +11,16 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+#newLiftForm {
+  display: inline-block;
+}
+
+#newUser, #signupForm {
+  display: inline-block;
+}
+
+#loginForm, #login_page {
+  display: inline-block;
+}
+
