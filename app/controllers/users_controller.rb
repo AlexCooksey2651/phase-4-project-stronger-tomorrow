@@ -24,5 +24,5 @@ rescue_from ActiveRecord::RecordInvalid, with: :invalid_record
 
     def user_params
         params.permit(:first_name, :last_name, :email, :password, :password_confirmation, :height, :weight, :sex)
-    endsern
+    end
 end

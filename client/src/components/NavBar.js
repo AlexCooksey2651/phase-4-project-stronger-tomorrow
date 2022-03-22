@@ -47,12 +47,12 @@ function NavBar({ user, setUser }) {
       >
         <b>Profile</b>
       </NavLink>
-      <NavLink
+      <button
         style={linkStyles}
         onClick={handleLogout}
       >
         Logout
-      </NavLink>
+      </button>
     </div>
   );
 }
