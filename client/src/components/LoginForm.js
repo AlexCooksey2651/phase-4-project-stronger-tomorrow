@@ -20,7 +20,7 @@ function LoginForm({ onLogin }) {
             }
         ),
     })
-        .then(resp => {
+        .then(r => {
             setIsLoading(false)
             if (r.ok) {
                 r.json().then(user => onLogin(user))
