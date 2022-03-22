@@ -2,8 +2,9 @@ import React, { useState } from 'react'
 import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
 import Container from 'react-bootstrap/Container'
+import Stack from 'react-bootstrap/Stack'
 
-function LoginForm({ onLogin }) {
+function LoginForm({ onLogin, toggleLoginPage }) {
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
   const [errors, setErrors] = useState([]);
@@ -46,13 +47,15 @@ function LoginForm({ onLogin }) {
           <Form.Label>Password</Form.Label>
           <Form.Control type="password" placeholder="Password" value={password} onChange={e => setPassword(e.target.value)}/>
         </Form.Group>
-        <Form.Group className="mb-3" controlId="formBasicCheckbox">
-          <Form.Check type="checkbox" label="Check me out" />
-        </Form.Group>
 
-        <Button variant="primary" type="submit">
-          Login
-        </Button>
+        <Stack gap={2} className="col-md-5 mx-auto">
+          <Button variant="light" type="submit">
+            Login
+          </Button>
+          <Button variant="light" onClick={() => toggleLoginPage()}>
+            Sign Up as New User
+          </Button>
+        </Stack>
       </Form>
     </Container>
     // <form id="login-form" onSubmit={handleSubmit}>

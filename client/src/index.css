@@ -5,12 +5,77 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-image: url("https://www.ironcompany.com/media/magefan_blog/2017/12/ed-coan-sumo.jpg");
+  background-size: 100%;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+#header, #navbar {
+  background-color: black;
+  color: lightslategrey;
+  text-align: center;
+  padding: 10px;
+}
+
+h1 {
+  font-size: 5.0em;
+  font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif
+}
+
+#new-lift-form, #login-form, #signup-form, #edit-profile-form {
+  background-color: lightslategrey;
+  width: 50%;
+  margin: auto;
+  padding: 10px;
+  border-radius: 2%;
+}
+
+#profile {
+  background-color: lightslategray;
+  width: 50%;
+  margin: auto;
+  padding: 50px;
+  border-radius: 2%;
+}
+
+.lift-card {
+  background-color: white;
+  width: 70%;
+  padding: 10px;
+  margin: auto;
+}
+
+#navbar {
+  margin: 10px;
+  width: 100%;
+  text-align: center;
+}
+
+#button-div {
+  align-items: right;
+}
+
+
+
+/* #logout-button {
+  background-color: black;
+  border: none;
+} */
+
+/* #navbar {
+  margin: 10px;
+} */
+
+
+
+
+
+
+
 
 
 

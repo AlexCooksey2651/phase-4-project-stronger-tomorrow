@@ -6,13 +6,16 @@ import Header from "../components/Header"
 function Login({ onLogin }) {
   const [showSignup, setShowSignup] = useState(false)
   
-  
+  function toggleLoginPage() {
+    setShowSignup(!showSignup)
+  }
+
   return (
     <div id="login">
       <Header />
-      <LoginForm onLogin={onLogin}/>
-      <button onClick={()=>setShowSignup(!showSignup)}>Sign Up</button>
-      {showSignup ? <SignUpForm onLogin={onLogin}/> : null}
+      {showSignup ? null : <LoginForm onLogin={onLogin} toggleLoginPage={toggleLoginPage}/>}
+      {/* <button onClick={()=>setShowSignup(!showSignup)}>Sign Up</button> */}
+      {showSignup ? <SignUpForm onLogin={onLogin} toggleLoginPage={toggleLoginPage}/> : null}
     </div>
   )
 }

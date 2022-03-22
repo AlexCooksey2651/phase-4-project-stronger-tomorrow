@@ -5,7 +5,11 @@ class LiftSessionsController < ApplicationController
         records = LiftSession.all
         render json: records
     end
-    
+
+    def create
+        
+    end
+
     private
 
     def authorize

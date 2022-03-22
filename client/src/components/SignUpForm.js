@@ -1,6 +1,10 @@
 import React, { useState } from 'react'
+import Form from 'react-bootstrap/Form'
+import Button from 'react-bootstrap/Button'
+import Container from 'react-bootstrap/Container'
+import Stack from 'react-bootstrap/Stack'
 
-function SignUpForm({ onLogin }) {
+function SignUpForm({ onLogin, toggleLoginPage }) {
   const [firstName, setFirstName] = useState("")
   const [lastName, setLastName] = useState("")
   const [email, setEmail] = useState("")
@@ -46,75 +50,127 @@ function SignUpForm({ onLogin }) {
 
 
   return (
-    <div className="newUser">
-      <form id="signup-form" onSubmit={handleSubmit}>
-        <label for="first_name">First Name:
-          <input required
-            type="text"
-            name="first_name"
-            value={firstName}
-            onChange={e => setFirstName(e.target.value)}
-          />
-        </label>
-        <label for="last_name">Last Name:
-          <input required
-            type="text"
-            name="last_name"
-            value={lastName}
-            onChange={e => setLastName(e.target.value)}
-          />
-        </label>
-        <label for="email">Email Address:
-          <input required
-            type="text"
-            name="email"
-            value={email}
-            onChange={e => setEmail(e.target.value)}
-          />
-        </label>
-        <label for="password">Password:
-          <input required
-            type="password"
-            name="password"
-            value={password}
-            onChange={e => setPassword(e.target.value)}
-          />
-        </label>
-        <label for="password_confirmation">Confirm Password:
-          <input required
-            type="password"
-            name="password"
-            value={passwordConfirmation}
-            onChange={e => setPasswordConfirmation(e.target.value)}
-          />
-        </label>
-        <label for="age">Age:
-          <input required
-            type="number"
-            name="age"
-            value={age}
-            onChange={e => setAge(e.target.value)}
-          />
-        </label>
-        <label for="height">Height:
-          <input required
-            type="number"
-            name="height"
-            value={height}
-            onChange={e => setHeight(e.target.value)}
-          /> inches
-        </label>
-        <label for="weight">Weight:
-          <input required
-            type="text"
-            name="bodyweight"
-            value={bodyweight}
-            onChange={e => setBodyweight(e.target.value)}
-          /> pounds
-        </label>
-        <button type="submit">Submit</button>
-      </form>
-    </div>
+    <Container>
+      <Form id="signup-form" onSubmit={handleSubmit}>
+        <Form.Group className="mb-3" controlId="formBasicName">
+          <Form.Label>First Name:</Form.Label>
+          <Form.Control type="text" placeholder="First name" value={firstName} onChange={e => setFirstName(e.target.value)}/>
+        </Form.Group>
+
+        <Form.Group className="mb-3" controlId="formBasicName">
+          <Form.Label>Last Name</Form.Label>
+          <Form.Control type="text" placeholder="Last name" value={lastName} onChange={e => setLastName(e.target.value)}/>
+        </Form.Group>
+
+        <Form.Group className="mb-3" controlId="formBasicAge">
+          <Form.Label>Age</Form.Label>
+          <Form.Control type="number" min="18" max="99" placeholder="Age" value={age} onChange={e => setAge(e.target.value)}/>
+        </Form.Group>
+
+        <Form.Group className="mb-3" controlId="formBasicHeight">
+          <Form.Label>Height</Form.Label>
+          <Form.Control type="number" min="36" max="96" placeholder="Height (inches)" value={height} onChange={e => setHeight(e.target.value)}/>
+        </Form.Group>
+
+        <Form.Group className="mb-3" controlId="formBasicHeight">
+          <Form.Label>Bodyweight</Form.Label>
+          <Form.Control type="number" min="1" max="1000" placeholder="Bodyweight (pounds)" value={bodyweight} onChange={e => setBodyweight(e.target.value)}/>
+        </Form.Group>
+
+        <Form.Group className="mb-3" controlId="formBasicEmail">
+          <Form.Label>Email Address</Form.Label>
+          <Form.Control type="email" placeholder="Enter email" value={email} onChange={e => setEmail(e.target.value)}/>
+        </Form.Group>
+
+        <Form.Group className="mb-3" controlId="formBasicPassword">
+          <Form.Label>Password</Form.Label>
+          <Form.Control type="password" placeholder="Password" value={password} onChange={e => setPassword(e.target.value)}/>
+        </Form.Group>
+
+        <Form.Group className="mb-3" controlId="formBasicPasswordConfirmation">
+          <Form.Label>Password Confirmation</Form.Label>
+          <Form.Control type="password" placeholder="Confirm Password" value={passwordConfirmation} onChange={e => setPasswordConfirmation(e.target.value)}/>
+        </Form.Group>
+       
+        <Stack gap={2} className="col-md-5 mx-auto">
+          <Button variant="light" type="submit">
+            Submit
+          </Button>
+          <Button variant="light" onClick={() => toggleLoginPage()}>
+            Login as Current User
+          </Button>
+        </Stack>
+      </Form>
+    </Container>
+    // <div className="newUser">
+    //   <form id="signup-form" onSubmit={handleSubmit}>
+    //     <label for="first_name">First Name:
+    //       <input required
+    //         type="text"
+    //         name="first_name"
+    //         value={firstName}
+    //         onChange={e => setFirstName(e.target.value)}
+    //       />
+    //     </label>
+    //     <label for="last_name">Last Name:
+    //       <input required
+    //         type="text"
+    //         name="last_name"
+    //         value={lastName}
+    //         onChange={e => setLastName(e.target.value)}
+    //       />
+    //     </label>
+    //     <label for="email">Email Address:
+    //       <input required
+    //         type="text"
+    //         name="email"
+    //         value={email}
+    //         onChange={e => setEmail(e.target.value)}
+    //       />
+    //     </label>
+    //     <label for="password">Password:
+    //       <input required
+    //         type="password"
+    //         name="password"
+    //         value={password}
+    //         onChange={e => setPassword(e.target.value)}
+    //       />
+    //     </label>
+    //     <label for="password_confirmation">Confirm Password:
+    //       <input required
+    //         type="password"
+    //         name="password"
+    //         value={passwordConfirmation}
+    //         onChange={e => setPasswordConfirmation(e.target.value)}
+    //       />
+    //     </label>
+    //     <label for="age">Age:
+    //       <input required
+    //         type="number"
+    //         name="age"
+    //         value={age}
+    //         onChange={e => setAge(e.target.value)}
+    //       />
+    //     </label>
+    //     <label for="height">Height:
+    //       <input required
+    //         type="number"
+    //         name="height"
+    //         value={height}
+    //         onChange={e => setHeight(e.target.value)}
+    //       /> inches
+    //     </label>
+    //     <label for="weight">Weight:
+    //       <input required
+    //         type="text"
+    //         name="bodyweight"
+    //         value={bodyweight}
+    //         onChange={e => setBodyweight(e.target.value)}
+    //       /> pounds
+    //     </label>
+    //     <button type="submit">Submit</button>
+    //   </form>
+    // </div>
   )
 }
 

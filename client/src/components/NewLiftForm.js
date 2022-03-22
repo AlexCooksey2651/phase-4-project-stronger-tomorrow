@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react'
 import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
 import Container from 'react-bootstrap/Container'
-import LiftCard from './LiftCard'
 
 function NewLiftForm() {
   const [lift, setLift] = useState("")
@@ -35,6 +34,9 @@ function NewLiftForm() {
     })
   }
 
+  const current = new Date();
+  const formDate = `${current.getDate()}/${current.getMonth()+1}/${current.getFullYear()}`
+
   const liftOptions = lifts.map(lift => {
     return <option key={lift.id} value={lift.name}>{lift.name}</option>
   })
@@ -44,28 +46,29 @@ function NewLiftForm() {
         <Form.Group className="mb-3" controlId="formBasicSelect">
           <Form.Label>Choose Lift:</Form.Label>
           <Form.Select aria-label="Default select example" value={lift} onChange={e => setLift(e.target.value)}>
+            <option value="" disabled selected>Select Lift</option>
             {liftOptions}
           </Form.Select>
         </Form.Group>
 
         <Form.Group className="mb-3" controlId="formBasicInput">
           <Form.Label>Date:</Form.Label>
-          <Form.Control type="date" placeholder="Select Date" value={date} onChange={e => setDate(e.target.value)}/>
+          <Form.Control type="date" max={formDate} placeholder="Select Date" value={date} onChange={e => setDate(e.target.value)}/>
         </Form.Group>
 
         <Form.Group className="mb-3" controlId="formBasicInput">
           <Form.Label>Repetitions:</Form.Label>
-          <Form.Control type="number" placeholder="Number of Reps" value={reps} onChange={e => setReps(e.target.value)}/>
+          <Form.Control type="number" min="1" max="20" placeholder="Number of Reps" value={reps} onChange={e => setReps(e.target.value)}/>
         </Form.Group>
 
         <Form.Group className="mb-3" controlId="formBasicInput">
           <Form.Label>Weight Used:</Form.Label>
-          <Form.Control type="number" placeholder="Weight Used in Pounds" value={weight} onChange={e => setWeight(e.target.value)}/>
+          <Form.Control type="number" placeholder="Weight Used in Pounds" min="0" step="5" max="1000" value={weight} onChange={e => setWeight(e.target.value)}/>
         </Form.Group>
 
-        <Button variant="primary" type="submit">
-          Submit
-        </Button>
+          <Button variant="light" type="submit">
+            Submit
+          </Button>
       </Form>
     </Container >
     // <form id="new-lift-form" onSubmit={handleSubmit}>
