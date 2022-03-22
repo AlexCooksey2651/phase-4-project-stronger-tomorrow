@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react"
 import { Route, Switch } from "react-router-dom";
 import Login from "../pages/Login"
+import Header from "./Header"
 import NavBar from "./NavBar"
 import RecordNewLift from "../pages/RecordNewLift"
 import Dashboard from "../pages/Dashboard"
@@ -21,6 +22,7 @@ function App() {
 
   return (
     <div className="App">
+      <Header />
       <NavBar user={user} setUser={setUser}/>
       <Switch >
         <Route exact path="/dashboard">

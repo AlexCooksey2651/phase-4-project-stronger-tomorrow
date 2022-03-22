@@ -47,7 +47,7 @@ function SignUpForm({ onLogin }) {
 
   return (
     <div className="newUser">
-      <form id="signupForm" onSubmit={handleSubmit}>
+      <form id="signup-form" onSubmit={handleSubmit}>
         <label for="first_name">First Name:
           <input required
             type="text"

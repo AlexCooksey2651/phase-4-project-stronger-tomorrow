@@ -15,21 +15,23 @@ function LoginForm({ onLogin }) {
             "Content-Type": "application/json",
         },
         body: JSON.stringify( 
-            { email, password }
+            { email, 
+              password
+            }
         ),
     })
         .then(resp => {
             setIsLoading(false)
-            if (resp.ok) {
-                resp.json().then(user => onLogin(user))
+            if (r.ok) {
+                r.json().then(user => onLogin(user))
             } else {
-                resp.json().then(err => setErrors(err.errors));
+                r.json().then(err => setErrors(err.errors));
             }
         });
   }
 
   return (
-    <form id="loginForm" onSubmit={handleSubmit}>
+    <form id="login-form" onSubmit={handleSubmit}>
         <label for="email">Email Address:
           <input required
             type="text"

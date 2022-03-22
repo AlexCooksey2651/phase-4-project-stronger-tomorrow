@@ -2,7 +2,7 @@ import React from 'react'
 
 function LiftCard({ lift }) {
   return (
-    <div>
+    <div className="lift-card">
         {lift.id}
     </div>
   )

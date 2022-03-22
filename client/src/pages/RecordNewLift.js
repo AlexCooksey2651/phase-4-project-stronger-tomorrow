@@ -3,7 +3,7 @@ import NewLiftForm from "../components/NewLiftForm"
 
 function RecordNewLift() {
   return (
-    <div id="record_new_lift">
+    <div id="new-lift-form">
       <NewLiftForm />
     </div>
   )

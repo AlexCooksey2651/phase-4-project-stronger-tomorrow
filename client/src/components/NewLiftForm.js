@@ -25,7 +25,7 @@ function NewLiftForm() {
   }
 
   return (
-    <form id="newLiftForm" onSubmit={handleSubmit}>
+    <form id="new-lift-form" onSubmit={handleSubmit}>
         <label for="lift">Lift:
           <select required name="lift" onChange={e => setLift(e.target.value)}>
               <option value="Flat Barbell Bench Press">Flat Barbell Bench Press</option>

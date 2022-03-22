@@ -25,7 +25,7 @@ function NavBar({ user, setUser }) {
   }
 
   return (
-    <div id="navBar">
+    <div id="navbar">
       <NavLink 
         to="/dashboard" exact 
         style={linkStyles}
