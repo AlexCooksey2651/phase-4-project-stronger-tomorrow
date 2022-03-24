@@ -13,9 +13,7 @@ function Login({ onLogin }) {
   return (
     <div id="login">
       <Header />
-      {showSignup ? null : <LoginForm onLogin={onLogin} toggleLoginPage={toggleLoginPage}/>}
-      {/* <button onClick={()=>setShowSignup(!showSignup)}>Sign Up</button> */}
-      {showSignup ? <SignUpForm onLogin={onLogin} toggleLoginPage={toggleLoginPage}/> : null}
+      {showSignup ?<SignUpForm onLogin={onLogin} toggleLoginPage={toggleLoginPage}/> : <LoginForm onLogin={onLogin} toggleLoginPage={toggleLoginPage}/>}
     </div>
   )
 }

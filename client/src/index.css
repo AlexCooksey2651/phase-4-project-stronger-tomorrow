@@ -26,9 +26,9 @@ h1 {
   font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif
 }
 
-#new-lift-form, #login-form, #signup-form, #edit-profile-form {
+#new-lift-form, #login-form, #signup-form, #edit-profile-form, #user-info, #dashboard {
   background-color: lightslategrey;
-  width: 50%;
+  width: 60%;
   margin: auto;
   padding: 10px;
   border-radius: 2%;
@@ -44,20 +44,15 @@ h1 {
 
 .lift-card {
   background-color: white;
-  width: 70%;
+  width: 90%;
   padding: 10px;
-  margin: auto;
+  margin: 10px auto;
 }
 
-#navbar {
-  margin: 10px;
-  width: 100%;
+.lift-title {
   text-align: center;
 }
 
-#button-div {
-  align-items: right;
-}
 
 
 

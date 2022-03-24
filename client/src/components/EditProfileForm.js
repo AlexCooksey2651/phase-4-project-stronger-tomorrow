@@ -4,14 +4,34 @@ import Button from 'react-bootstrap/Button'
 import Container from 'react-bootstrap/Container'
 import Stack from 'react-bootstrap/Stack'
 
-function EditProfileForm() {
-    const [firstName, setFirstName] = useState("")
-    const [lastName, setLastName] = useState("")
-    const [age, setAge] = useState("")
-    const [height, setHeight] = useState("")
-    const [bodyweight, setBodyweight] = useState("")
-    const [email, setEmail] = useState("")
-    
+function EditProfileForm({ userInfo, toggleProfilePage, handleUpdateUser }) {
+    const [firstName, setFirstName] = useState(userInfo.first_name)
+    const [lastName, setLastName] = useState(userInfo.last_name)
+    const [age, setAge] = useState(userInfo.age)
+    const [height, setHeight] = useState(userInfo.height)
+    const [bodyweight, setBodyweight] = useState(userInfo.weight)
+    const [email, setEmail] = useState(userInfo.email)
+
+    function handleSubmit(e) {
+        e.preventDefault()
+        fetch('/update', {
+            method: "PATCH",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                first_name: firstName,
+                last_name: lastName,
+                age,
+                height,
+                weight: bodyweight,
+                email
+            })
+        })
+            .then(r => r.json())
+            .then(user => handleUpdateUser(user))
+        toggleProfilePage()
+    }
     return (
         <Container>
             <Form id="edit-profile-form" onSubmit={handleSubmit}>
@@ -44,10 +64,13 @@ function EditProfileForm() {
                     <Form.Label>Email Address</Form.Label>
                     <Form.Control type="email" placeholder="Enter email" value={email} onChange={e => setEmail(e.target.value)} />
                 </Form.Group>
-                
+
                 <Stack gap={2} className="col-md-5 mx-auto">
-                    <Button variant="primary" type="submit">
-                        Done
+                    <Button variant="light" type="submit">
+                        Submit
+                    </Button>
+                    <Button variant="light" onClick={() => toggleProfilePage()}>
+                        Cancel
                     </Button>
                 </Stack>
             </Form>

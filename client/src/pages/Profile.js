@@ -1,18 +1,25 @@
-import React from 'react'
+import React, { useState } from 'react'
+import UserInfo from "../components/UserInfo"
+import EditProfileForm from "../components/EditProfileForm"
 
 function Profile({ user }) {
   const { id, first_name, last_name, age, height, weight, email, password } = user
+  const [userInfo, setUserInfo] = useState(user)
+  const [showEditProfile, setShowEditProfile] = useState(false)
+  
+  function toggleProfilePage() {
+    setShowEditProfile(!showEditProfile)
+  }
+
+  function handleUpdateUser(updatedUser) {
+    setUserInfo(updatedUser)
+  }
+
   return (
-    <div id="profile">
-        <h2>First Name: {first_name}</h2>
-        <h2>Last Name: {last_name}</h2>
-        <h2>Age: {age}</h2>
-        <h2>Height: {height} inches</h2>
-        <h2>Weight: {weight} pounds</h2>
-        <h2>Email Address: {email}</h2>
-        <button>Edit Profile Information</button>
-    </div>
+    <>
+      {showEditProfile ? <EditProfileForm userInfo={userInfo} toggleProfilePage={toggleProfilePage} handleUpdateUser={handleUpdateUser}/> : <UserInfo userInfo={userInfo} toggleProfilePage={toggleProfilePage}/>}
+    </>
   )
 }
 
-export default Profile
+export default Profile;

@@ -4,5 +4,5 @@ class LiftSession < ApplicationRecord
 
     validates :date, presence: :true
     validates :repetitions, presence: :true
-    validates :lift, presence: :true
+    validates :lift_id, presence: :true
 end

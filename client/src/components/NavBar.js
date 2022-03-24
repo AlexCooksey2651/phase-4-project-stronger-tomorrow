@@ -33,60 +33,59 @@ function NavBar({ user, setUser }) {
   }
 
   return (
-    <Navbar id="navbar" bg="black" expand={false}>
-      <Container>
-        <Dropdown>
-          <div id="button-div">
-            <Dropdown.Toggle variant="light" id="dropdown-basic">
-              Menu
-            </Dropdown.Toggle>
-          </div>
-
-          <Dropdown.Menu>
-            <Dropdown.Item>
-              <Nav.Link href="/dashboard">Dashboard</Nav.Link>
-            </Dropdown.Item>
-            <Dropdown.Item>
-              <Nav.Link href="/record_new_lift">Record New Lift</Nav.Link>
-            </Dropdown.Item>
-            <Dropdown.Item >
-              <Nav.Link href="/profile">Profile</Nav.Link>
-            </Dropdown.Item>
-            <Dropdown.Item id="logout-button" onClick={handleLogout}>
-              <Nav.Link onClick={handleLogout}>Logout</Nav.Link>
-            </Dropdown.Item>
-          </Dropdown.Menu>
-        </Dropdown>
-      </Container>
-    </Navbar>
-    // <Navbar bg="light" expand={false}>
+    // <Navbar bg="black" expand={false}>
     //   <Container fluid>
-    //     <Navbar.Brand href="#"></Navbar.Brand>
-    //     <Navbar.Toggle aria-controls="offcanvasNavbar" />
-    //     <Navbar.Offcanvas
-    //       id="offcanvasNavbar"
-    //       aria-labelledby="offcanvasNavbarLabel"
-    //       placement="end"
-    //     >
-    //       <Offcanvas.Header closeButton>
-    //         <Offcanvas.Title id="offcanvasNavbarLabel">Menu</Offcanvas.Title>
-    //       </Offcanvas.Header>
-    //       <Offcanvas.Body>
-    //         <Nav className="justify-content-end flex-grow-1 pe-3">
+    //     <Dropdown>
+    //       <Dropdown.Toggle variant="light" id="dropdown-basic">
+    //         Menu
+    //       </Dropdown.Toggle>
+
+    //       <Dropdown.Menu>
+    //         <Dropdown.Item>
     //           <Nav.Link href="/dashboard">Dashboard</Nav.Link>
+    //         </Dropdown.Item>
+    //         <Dropdown.Item>
     //           <Nav.Link href="/record_new_lift">Record New Lift</Nav.Link>
+    //         </Dropdown.Item>
+    //         <Dropdown.Item >
     //           <Nav.Link href="/profile">Profile</Nav.Link>
-    //           <Button
-    //             id="logout-button"
-    //             onClick={handleLogout}
-    //           >
-    //             Logout
-    //           </Button>
-    //         </Nav>
-    //       </Offcanvas.Body>
-    //     </Navbar.Offcanvas>
+    //         </Dropdown.Item>
+    //         <Dropdown.Item id="logout-button" onClick={handleLogout}>
+    //           <Nav.Link onClick={handleLogout}>Logout</Nav.Link>
+    //         </Dropdown.Item>
+    //       </Dropdown.Menu>
+    //     </Dropdown>
     //   </Container>
     // </Navbar>
+    <Navbar bg="light" expand={false}>
+      <Container fluid>
+        <Navbar.Brand href="#"></Navbar.Brand>
+        <Navbar.Toggle aria-controls="offcanvasNavbar" />
+        <Navbar.Offcanvas
+          id="offcanvasNavbar"
+          aria-labelledby="offcanvasNavbarLabel"
+          placement="end"
+        >
+          <Offcanvas.Header closeButton>
+            <Offcanvas.Title id="offcanvasNavbarLabel">Menu</Offcanvas.Title>
+          </Offcanvas.Header>
+          <Offcanvas.Body>
+            <Nav className="justify-content-end flex-grow-1 pe-3">
+              <Nav.Link href="/dashboard">Dashboard</Nav.Link>
+              <Nav.Link href="/record_new_lift">Record New Lift</Nav.Link>
+              <Nav.Link href="/profile">Profile</Nav.Link>
+              <Nav.Link id="logout-button" onClick={handleLogout}>Logout</Nav.Link>
+              {/* <Button
+                id="logout-button"
+                onClick={handleLogout}
+              >
+                Logout
+              </Button> */}
+            </Nav>
+          </Offcanvas.Body>
+        </Navbar.Offcanvas>
+      </Container>
+    </Navbar>
     // <div id="navbar">
     //   <NavLink 
     //     to="/dashboard" exact 

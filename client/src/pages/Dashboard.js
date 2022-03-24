@@ -18,7 +18,7 @@ function Dashboard() {
   }, [])
 
   const liftCards = lifts.map(lift => {
-    return <LiftCard key={lift.id} lift={lift}/>
+    return <LiftCard key={lift.id} lift={lift} />
   })
 
   return (

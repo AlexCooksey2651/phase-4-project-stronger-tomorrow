@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from 'react'
+import { useHistory } from "react-router";
 import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
 import Container from 'react-bootstrap/Container'
+
 
 function NewLiftForm() {
   const [lift, setLift] = useState("")
@@ -9,6 +11,9 @@ function NewLiftForm() {
   const [reps, setReps] = useState("")
   const [weight, setWeight] = useState("")
   const [lifts, setLifts] = useState([])
+  const [errors, setErrors] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
+  
 
   useEffect(() => {
     fetch('/lifts')
@@ -18,28 +23,40 @@ function NewLiftForm() {
 
   function handleSubmit(e) {
     e.preventDefault()
+    setIsLoading(true)
     fetch('/lift_sessions', {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify(
-        {
-          lift,
+      body: JSON.stringify({
+          lift_id: lift,
           date,
-          reps,
-          weight
-        }
-      )
+          repetitions: reps,
+          weight,
+      })
     })
+      .then(r => {
+        setIsLoading(false)
+        if (r.ok) {
+          r.json().then(data => console.log(data))
+        } else {
+          r.json().then(err => setErrors(err.errors));
+        }
+      })
+    setLift("")
+    setDate("")
+    setReps("")
+    setWeight("")
   }
 
   const current = new Date();
   const formDate = `${current.getDate()}/${current.getMonth()+1}/${current.getFullYear()}`
 
   const liftOptions = lifts.map(lift => {
-    return <option key={lift.id} value={lift.name}>{lift.name}</option>
+    return <option key={lift.id} value={lift.id}>{lift.name}</option>
   })
+
   return (
     <Container>
       <Form id="new-lift-form" onSubmit={handleSubmit}>

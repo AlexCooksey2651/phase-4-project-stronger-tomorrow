@@ -2,10 +2,11 @@ Rails.application.routes.draw do
   
   resources :lifts
   resources :lift_sessions
-  resources :users, only: [:update]
+  # resources :users, only: [:update]
   # Routing logic: fallback requests for React Router.
   post '/signup', to: 'users#create'
   get '/me', to: 'users#show'
+  patch '/update', to: 'users#update'
   post '/login', to: 'sessions#create'
   delete '/logout', to: 'sessions#destroy'
   # Leave this here to help deploy your app later!
