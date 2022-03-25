@@ -26,6 +26,16 @@ rescue_from ActiveRecord::RecordInvalid, with: :invalid_record
         end
     end
 
+    def destroy
+        user = User.find_by(id: session[:user_id])
+        if user
+            user.destroy
+            head :no_content
+        else
+            render json: {error: "User not found"}, status: :not_found
+        end
+    end
+
     private
 
     def invalid_record(invalid)

@@ -18,12 +18,23 @@ function App() {
     })
   }, [])
 
+  function handleLogout() {
+    fetch('/logout', {
+      method: "DELETE"
+    })
+      .then(r => {
+        if (r.ok) {
+          setUser(null)
+        }
+      })
+  }
+
   if (!user) return <Login onLogin={setUser} />
 
   return (
     <div className="App">
       <Header />
-      <NavBar user={user} setUser={setUser}/>
+      <NavBar user={user} setUser={setUser} handleLogout={handleLogout}/>
       <Switch >
         <Route exact path="/dashboard">
           <Dashboard user={user}/>
@@ -32,7 +43,7 @@ function App() {
           <RecordNewLift />
         </Route>
         <Route exact path="/profile">
-          <Profile user={user}/>
+          <Profile user={user} handleLogout={handleLogout}/>
         </Route>
       </Switch>
     </div>

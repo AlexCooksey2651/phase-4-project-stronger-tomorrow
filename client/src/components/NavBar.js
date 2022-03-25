@@ -20,17 +20,17 @@ const linkStyles = {
   color: "white",
 };
 
-function NavBar({ user, setUser }) {
-  function handleLogout() {
-    fetch('/logout', {
-      method: "DELETE"
-    })
-      .then(r => {
-        if (r.ok) {
-          setUser(null)
-        }
-      })
-  }
+function NavBar({ user, setUser, handleLogout }) {
+  // function handleLogout() {
+  //   fetch('/logout', {
+  //     method: "DELETE"
+  //   })
+  //     .then(r => {
+  //       if (r.ok) {
+  //         setUser(null)
+  //       }
+  //     })
+  // }
 
   return (
     // <Navbar bg="black" expand={false}>

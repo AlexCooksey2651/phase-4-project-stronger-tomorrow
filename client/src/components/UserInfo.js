@@ -4,7 +4,7 @@ import Button from 'react-bootstrap/Button'
 import Container from 'react-bootstrap/Container'
 import Stack from 'react-bootstrap/Stack'
 
-function UserInfo({ userInfo, toggleProfilePage }) {
+function UserInfo({ userInfo, toggleProfilePage, handleLogout }) {
     const { id, first_name, last_name, age, height, weight, email, password } = userInfo
     return (
         <Container>
@@ -43,6 +43,9 @@ function UserInfo({ userInfo, toggleProfilePage }) {
                 <Stack gap={2} className="col-md-5 mx-auto">
                     <Button variant="light" onClick={() => toggleProfilePage()}>
                         Edit Profile Information
+                    </Button>
+                    <Button variant="light" onClick={() => handleLogout()}>
+                        Delete Profile
                     </Button>
                 </Stack>
             </Form>
