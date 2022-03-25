@@ -1,5 +1,5 @@
 class User < ApplicationRecord
-    has_many :lift_sessions
+    has_many :lift_sessions, dependent: :destroy
     has_many :lifts, through: :lift_sessions
 
     has_secure_password

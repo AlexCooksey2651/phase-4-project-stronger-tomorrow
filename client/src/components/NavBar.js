@@ -33,30 +33,6 @@ function NavBar({ user, setUser, handleLogout }) {
   // }
 
   return (
-    // <Navbar bg="black" expand={false}>
-    //   <Container fluid>
-    //     <Dropdown>
-    //       <Dropdown.Toggle variant="light" id="dropdown-basic">
-    //         Menu
-    //       </Dropdown.Toggle>
-
-    //       <Dropdown.Menu>
-    //         <Dropdown.Item>
-    //           <Nav.Link href="/dashboard">Dashboard</Nav.Link>
-    //         </Dropdown.Item>
-    //         <Dropdown.Item>
-    //           <Nav.Link href="/record_new_lift">Record New Lift</Nav.Link>
-    //         </Dropdown.Item>
-    //         <Dropdown.Item >
-    //           <Nav.Link href="/profile">Profile</Nav.Link>
-    //         </Dropdown.Item>
-    //         <Dropdown.Item id="logout-button" onClick={handleLogout}>
-    //           <Nav.Link onClick={handleLogout}>Logout</Nav.Link>
-    //         </Dropdown.Item>
-    //       </Dropdown.Menu>
-    //     </Dropdown>
-    //   </Container>
-    // </Navbar>
     <Navbar bg="light" expand={false}>
       <Container fluid>
         <Navbar.Brand href="#"></Navbar.Brand>
@@ -75,48 +51,11 @@ function NavBar({ user, setUser, handleLogout }) {
               <Nav.Link href="/record_new_lift">Record New Lift</Nav.Link>
               <Nav.Link href="/profile">Profile</Nav.Link>
               <Nav.Link id="logout-button" onClick={handleLogout}>Logout</Nav.Link>
-              {/* <Button
-                id="logout-button"
-                onClick={handleLogout}
-              >
-                Logout
-              </Button> */}
             </Nav>
           </Offcanvas.Body>
         </Navbar.Offcanvas>
       </Container>
     </Navbar>
-    // <div id="navbar">
-    //   <NavLink 
-    //     to="/dashboard" exact 
-    //     style={linkStyles}
-    //     activeStyle={{background: "lightslategrey",}}
-    //   >
-    //     <b>Dashboard</b>
-    //   </NavLink>
-    //   <NavLink 
-    //     to="/record_new_lift" exact
-    //     style={linkStyles}
-    //     activeStyle={{background: "lightslategrey",}}
-    //   >
-    //     <b>Record New Lift</b>
-    //   </NavLink>
-    //   <NavLink 
-    //     to="/profile" exact
-    //     style={linkStyles}
-    //     activeStyle={{background: "lightslategrey",}}
-    //   >
-    //     <b>Profile</b>
-    //   </NavLink>
-    //   <button
-    //     id="logout-button"
-    //     style={linkStyles}
-    //     onClick={handleLogout}
-    //     activeStyle={{background: "lightslategrey",}}
-    //   >
-    //     <b>Logout</b>
-    //   </button>
-    // </div>
   );
 }
 

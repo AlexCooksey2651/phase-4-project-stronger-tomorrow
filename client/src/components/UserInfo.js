@@ -6,6 +6,14 @@ import Stack from 'react-bootstrap/Stack'
 
 function UserInfo({ userInfo, toggleProfilePage, handleLogout }) {
     const { id, first_name, last_name, age, height, weight, email, password } = userInfo
+    
+    function deleteProfile() {
+        handleLogout()
+        fetch('/delete_profile', {
+            method: "DELETE",
+        })
+    }
+
     return (
         <Container>
             <Form id="user-info">
@@ -44,23 +52,12 @@ function UserInfo({ userInfo, toggleProfilePage, handleLogout }) {
                     <Button variant="light" onClick={() => toggleProfilePage()}>
                         Edit Profile Information
                     </Button>
-                    <Button variant="light" onClick={() => handleLogout()}>
+                    <Button variant="light" onClick={() => deleteProfile()}>
                         Delete Profile
                     </Button>
                 </Stack>
             </Form>
         </Container>
-        // <div id="profile">
-        //     <h2>First Name: {first_name}</h2>
-        //     <h2>Last Name: {last_name}</h2>
-        //     <h2>Age: {age}</h2>
-        //     <h2>Height: {height} inches</h2>
-        //     <h2>Weight: {weight} pounds</h2>
-        //     <h2>Email Address: {email}</h2>
-        //     <Button variant="light" onClick={() => toggleProfilePage()}>
-        //         Edit Profile Information
-        //     </Button>
-        // </div>
     )
 }
 
