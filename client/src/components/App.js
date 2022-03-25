@@ -26,7 +26,7 @@ function App() {
       <NavBar user={user} setUser={setUser}/>
       <Switch >
         <Route exact path="/dashboard">
-          <Dashboard />
+          <Dashboard user={user}/>
         </Route>
         <Route exact path="/record_new_lift">
           <RecordNewLift />

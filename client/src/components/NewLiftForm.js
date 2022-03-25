@@ -61,25 +61,25 @@ function NewLiftForm() {
     <Container>
       <Form id="new-lift-form" onSubmit={handleSubmit}>
         <Form.Group className="mb-3" controlId="formBasicSelect">
-          <Form.Label>Choose Lift:</Form.Label>
+          <Form.Label><b>SELECT LIFT:</b></Form.Label>
           <Form.Select aria-label="Default select example" value={lift} onChange={e => setLift(e.target.value)}>
-            <option value="" disabled selected>Select Lift</option>
+            <option value="" disabled selected>Lift</option>
             {liftOptions}
           </Form.Select>
         </Form.Group>
 
         <Form.Group className="mb-3" controlId="formBasicInput">
-          <Form.Label>Date:</Form.Label>
+          <Form.Label><b>DATE:</b></Form.Label>
           <Form.Control type="date" max={formDate} placeholder="Select Date" value={date} onChange={e => setDate(e.target.value)}/>
         </Form.Group>
 
         <Form.Group className="mb-3" controlId="formBasicInput">
-          <Form.Label>Repetitions:</Form.Label>
+          <Form.Label><b>REPETITIONS:</b></Form.Label>
           <Form.Control type="number" min="1" max="20" placeholder="Number of Reps" value={reps} onChange={e => setReps(e.target.value)}/>
         </Form.Group>
 
         <Form.Group className="mb-3" controlId="formBasicInput">
-          <Form.Label>Weight Used:</Form.Label>
+          <Form.Label><b>WEIGHT USED:</b></Form.Label>
           <Form.Control type="number" placeholder="Weight Used in Pounds" min="0" step="5" max="1000" value={weight} onChange={e => setWeight(e.target.value)}/>
         </Form.Group>
 

@@ -10,7 +10,7 @@ rescue_from ActiveRecord::RecordInvalid, with: :invalid_record
     def show
         user = User.find_by(id: session[:user_id])
         if user
-            render json: user
+            render json: user, include: ['lift_sessions', 'lift_sessions.lift']
         else
             render json: {error: "Unauthorized user"}, status: :unauthorized
         end

@@ -19,6 +19,7 @@ code {
   color: lightslategrey;
   text-align: center;
   padding: 10px;
+  opacity: 0.9;
 }
 
 h1 {
@@ -28,8 +29,10 @@ h1 {
 
 #new-lift-form, #login-form, #signup-form, #edit-profile-form, #user-info, #dashboard {
   background-color: lightslategrey;
+  opacity: 0.95;
   width: 60%;
-  margin: auto;
+  height: 100%;
+  margin: 10px auto;
   padding: 10px;
   border-radius: 2%;
 }
@@ -46,11 +49,18 @@ h1 {
   background-color: white;
   width: 90%;
   padding: 10px;
-  margin: 10px auto;
+  margin: auto;
+  border: 1px black solid;
+  border-radius: 2%
 }
 
 .lift-title {
   text-align: center;
+}
+
+#lift-card-container {
+  margin: 20px auto;
+  width: 70%;
 }
 
 

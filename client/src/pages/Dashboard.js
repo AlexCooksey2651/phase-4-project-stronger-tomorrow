@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react'
+import Accordion from 'react-bootstrap/Accordion'
 import LiftCard from "../components/LiftCard"
 
-function Dashboard() {
-  // const [liftRecords, setLiftRecords] = useState([])
+function Dashboard({ user }) {
+  const { id, first_name, last_name, age, height, weight, email, password, lift_sessions } = user
   const [lifts, setLifts] = useState([])
 
   // useEffect(() => {
@@ -17,14 +18,21 @@ function Dashboard() {
     .then(lifts => setLifts(lifts))
   }, [])
 
+  
   const liftCards = lifts.map(lift => {
-    return <LiftCard key={lift.id} lift={lift} />
+    const filteredRecords = lift_sessions.filter(record => {
+      return record.lift.name === lift.name
+    })
+    return <LiftCard key={lift.id} lift={lift} liftRecords={filteredRecords}/>
   })
 
   return (
-    <div id="dashboard">
+    <Accordion id="lift-card-container">
       {liftCards}
-    </div>
+    </Accordion>
+    // <div id="dashboard">
+    //   {liftCards}
+    // </div>
   )
 }
 
