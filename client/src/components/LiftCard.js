@@ -3,14 +3,17 @@ import Card from 'react-bootstrap/Card'
 import Table from 'react-bootstrap/Table'
 import Accordion from 'react-bootstrap/Accordion'
 
-function LiftCard({ lift, liftRecords }) {
+function LiftCard({ lift, filteredRecords }) {
   const [targetReps, setTargetReps] = useState(1)
-  const { id, name, lift_sessions } = lift
+  const { id, name } = lift
   const oneRepMax = (weight, repetitions) => {
     return (weight * (36 / (37 - repetitions)))
   }
 
-  const tableRows = liftRecords.map(record => {
+  const sortedRecords = filteredRecords.slice().sort((a,b) => (Date.parse(b.date) - Date.parse(a.date)))
+
+  const tableRows = sortedRecords.map(record => {
+    console.log(record)
     return (
       <tr key={record.id}>
         <td>{record.date}</td>
@@ -48,10 +51,7 @@ function LiftCard({ lift, liftRecords }) {
     }
   }
 
-
-
-
-  if (liftRecords.length > 0) {
+  if (filteredRecords.length > 0) {
     return (
       <Accordion.Item eventKey={id - 1} className="lift-card">
         <Accordion.Header className="lift-title">
@@ -59,7 +59,7 @@ function LiftCard({ lift, liftRecords }) {
             <b>{name.toUpperCase()}</b>
             <br />
             <br />
-            Current Estimated 1-Rep Max: {parseInt(oneRepMax(liftRecords[0].weight, liftRecords[0].repetitions))}
+            Current Estimated 1-Rep Max: {parseInt(oneRepMax(sortedRecords[0].weight, sortedRecords[0].repetitions))}
           </span>
         </Accordion.Header>
         <Accordion.Body>
