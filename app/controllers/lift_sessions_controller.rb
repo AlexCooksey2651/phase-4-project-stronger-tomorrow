@@ -33,4 +33,8 @@ rescue_from ActiveRecord::RecordInvalid, with: :invalid_record
     def lift_session_params
         params.permit(:date, :repetitions, :weight, :user_id, :lift_id)
     end
+
+    def invalid_record(invalid)
+        render json: {errors: invalid.record.errors.full_messages}, status: :unprocessable_entity
+    end
 end

@@ -5,7 +5,7 @@ import Container from 'react-bootstrap/Container'
 import Stack from 'react-bootstrap/Stack'
 
 function UserInfo({ userInfo, toggleProfilePage, handleLogout }) {
-    const { id, first_name, last_name, age, height, weight, email, password } = userInfo
+    const { first_name, last_name, age, height, weight, email } = userInfo
     
     function deleteProfile() {
         handleLogout()

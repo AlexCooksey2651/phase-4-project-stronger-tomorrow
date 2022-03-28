@@ -4,6 +4,7 @@ import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
 import Container from 'react-bootstrap/Container'
 import Stack from 'react-bootstrap/Stack'
+import Alert from 'react-bootstrap/Alert'
 
 function LoginForm({ onLogin, toggleLoginPage }) {
   const [email, setEmail] = useState("")
@@ -35,7 +36,7 @@ function LoginForm({ onLogin, toggleLoginPage }) {
             // history.push('/dashboard')
           })
         } else {
-          r.json().then(err => setErrors(err.errors));
+          r.json().then(data => setErrors(data.errors));
         }
       });
   }
@@ -45,12 +46,12 @@ function LoginForm({ onLogin, toggleLoginPage }) {
       <Form id="login-form" onSubmit={handleSubmit}>
         <Form.Group className="mb-3" controlId="formBasicEmail">
           <Form.Label><b>EMAIL ADDRESS:</b></Form.Label>
-          <Form.Control type="email" placeholder="Enter email" value={email} onChange={e => setEmail(e.target.value)}/>
+          <Form.Control type="email" placeholder="Enter email" value={email} onChange={e => setEmail(e.target.value)} />
         </Form.Group>
 
         <Form.Group className="mb-3" controlId="formBasicPassword">
           <Form.Label><b>PASSWORD:</b></Form.Label>
-          <Form.Control type="password" placeholder="Password" value={password} onChange={e => setPassword(e.target.value)}/>
+          <Form.Control type="password" placeholder="Password" value={password} onChange={e => setPassword(e.target.value)} />
         </Form.Group>
 
         <Stack gap={2} className="col-md-5 mx-auto">
@@ -61,27 +62,18 @@ function LoginForm({ onLogin, toggleLoginPage }) {
             Sign Up as New User
           </Button>
         </Stack>
+        <br/> 
+        {errors ? <Form.Group>
+          {errors.map(error => {
+            return (
+              <Alert key={error}>
+                {error}
+              </Alert>
+            )
+          })}
+        </Form.Group> : null}
       </Form>
     </Container>
-    // <form id="login-form" onSubmit={handleSubmit}>
-    //     <label for="email">Email Address:
-    //       <input required
-    //         type="text"
-    //         name="email"
-    //         value={email}
-    //         onChange={e => setEmail(e.target.value)}
-    //       />
-    //     </label>
-    //     <label for="password">Password:
-    //       <input required
-    //         type="password"
-    //         name="password"
-    //         value={password}
-    //         onChange={e => setPassword(e.target.value)}
-    //       />
-    //     </label>
-    //     <button type="submit">Login</button>
-    // </form>
   )
 }
 

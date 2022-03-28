@@ -73,7 +73,7 @@ function LiftCard({ lift, filteredRecords }) {
     }
   }
 
-  if (filteredRecords.length > 0) {
+  if (sortedRecords.length > 0) {
     return (
       <Accordion.Item eventKey={id - 1} className="lift-card">
         <Accordion.Header className="lift-title">

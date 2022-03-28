@@ -3,6 +3,7 @@ import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
 import Container from 'react-bootstrap/Container'
 import Stack from 'react-bootstrap/Stack'
+import Alert from 'react-bootstrap/Alert'
 
 function EditProfileForm({ userInfo, toggleProfilePage, handleUpdateUser }) {
     const [firstName, setFirstName] = useState(userInfo.first_name)
@@ -11,6 +12,7 @@ function EditProfileForm({ userInfo, toggleProfilePage, handleUpdateUser }) {
     const [height, setHeight] = useState(userInfo.height)
     const [bodyweight, setBodyweight] = useState(userInfo.weight)
     const [email, setEmail] = useState(userInfo.email)
+    const [errors, setErrors] = useState([]);
 
     function handleSubmit(e) {
         e.preventDefault()
@@ -28,10 +30,17 @@ function EditProfileForm({ userInfo, toggleProfilePage, handleUpdateUser }) {
                 email
             })
         })
-            .then(r => r.json())
-            .then(user => handleUpdateUser(user))
-        toggleProfilePage()
+            .then(r => {
+                if (r.ok) {
+                    r.json().then(user => handleUpdateUser(user))
+                    toggleProfilePage()
+                } else {
+                    r.json().then(data => setErrors(data.errors))
+                }
+            })
+        // toggleProfilePage()
     }
+
     return (
         <Container>
             <Form id="edit-profile-form" onSubmit={handleSubmit}>
@@ -73,6 +82,17 @@ function EditProfileForm({ userInfo, toggleProfilePage, handleUpdateUser }) {
                         Cancel
                     </Button>
                 </Stack>
+
+                <br />
+                {errors ? <Form.Group>
+                    {errors.map(error => {
+                        return (
+                            <Alert key={error}>
+                                {error}
+                            </Alert>
+                        )
+                    })}
+                </Form.Group> : null}
             </Form>
         </Container>
     )

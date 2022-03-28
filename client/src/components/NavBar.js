@@ -1,24 +1,8 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
 import Navbar from 'react-bootstrap/Navbar'
 import Container from 'react-bootstrap/Container'
 import Nav from 'react-bootstrap/Nav'
 import Offcanvas from 'react-bootstrap/Offcanvas'
-import Button from 'react-bootstrap/Button'
-import DropdownButton from 'react-bootstrap/DropdownButton'
-import Dropdown from "react-bootstrap/Dropdown"
-
-
-
-const linkStyles = {
-  display: "inline-block",
-  width: "200px",
-  padding: "15px",
-  margin: "6px 20px 6px",
-  borderRadius: "2%",
-  textDecoration: "none",
-  color: "white",
-};
 
 function NavBar({ user, setUser, handleLogout }) {
   // function handleLogout() {

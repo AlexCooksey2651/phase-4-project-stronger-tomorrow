@@ -3,7 +3,6 @@ import UserInfo from "../components/UserInfo"
 import EditProfileForm from "../components/EditProfileForm"
 
 function Profile({ user, handleLogout }) {
-  const { id, first_name, last_name, age, height, weight, email, password } = user
   const [userInfo, setUserInfo] = useState(user)
   const [showEditProfile, setShowEditProfile] = useState(false)
   

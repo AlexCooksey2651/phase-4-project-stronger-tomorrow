@@ -3,7 +3,7 @@ import Accordion from 'react-bootstrap/Accordion'
 import LiftCard from "../components/LiftCard"
 
 function Dashboard({ user }) {
-  const { id, first_name, last_name, age, height, weight, email, password, lift_sessions } = user
+  const { lift_sessions } = user
   const [lifts, setLifts] = useState([])
 
   useEffect(() => {
