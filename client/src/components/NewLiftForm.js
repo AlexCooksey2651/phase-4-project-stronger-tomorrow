@@ -79,7 +79,7 @@ function NewLiftForm() {
         </Form.Group>
 
         <Form.Group className="mb-3" controlId="formBasicInput">
-          <Form.Label><b>WEIGHT USED:</b></Form.Label>
+          <Form.Label><b>WEIGHT USED:</b><br/><em>Note: For pullups, include current bodyweight</em></Form.Label>
           <Form.Control type="number" placeholder="Weight Used in Pounds" min="0" step="5" max="1000" value={weight} onChange={e => setWeight(e.target.value)}/>
         </Form.Group>
 

@@ -8,6 +8,16 @@ rescue_from ActiveRecord::RecordInvalid, with: :invalid_record
         render json: records
     end
 
+    def destroy
+        session =  LiftSession.find_by(id: params[:id])
+        if session
+            session.destroy
+            head :no_content
+        else
+            render json: {error: "Record not found"}, status: :not_found
+        end
+    end
+
     def create
         user = User.find_by(id: session[:user_id])
         new_lift = user.lift_sessions.create!(lift_session_params)

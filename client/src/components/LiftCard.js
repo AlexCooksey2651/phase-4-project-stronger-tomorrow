@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import Card from 'react-bootstrap/Card'
+import Button from 'react-bootstrap/Button'
 import Table from 'react-bootstrap/Table'
 import Accordion from 'react-bootstrap/Accordion'
 
@@ -9,17 +9,39 @@ function LiftCard({ lift, filteredRecords }) {
   const oneRepMax = (weight, repetitions) => {
     return (weight * (36 / (37 - repetitions)))
   }
+  const [cardRecords, setCardRecords] = useState(filteredRecords)
+  const sortedRecords = cardRecords.slice().sort((a,b) => (Date.parse(b.date) - Date.parse(a.date)))
 
-  const sortedRecords = filteredRecords.slice().sort((a,b) => (Date.parse(b.date) - Date.parse(a.date)))
+  function updateRecords(deletedRecord) {
+    const remainingRecords = cardRecords.filter(record => {
+      return record.id !== deletedRecord.id
+    })
+    setCardRecords(remainingRecords)
+  }
+  
+  function handleDeleteRecord(record) {
+    console.log(record)
+    fetch(`/lift_sessions/${record.id}`, {
+      method: "DELETE",
+    })
+      .then(r => {
+        if (r.ok) {
+          updateRecords(record)
+        }
+      })
+  }
+
 
   const tableRows = sortedRecords.map(record => {
-    console.log(record)
     return (
       <tr key={record.id}>
         <td>{record.date}</td>
         <td>{record.weight} pounds</td>
         <td>{record.repetitions}</td>
         <td>{parseInt(repMaxConverter(record.weight, record.repetitions, targetReps))} pounds</td>
+        <td>
+          <Button size="sm" variant="outline-dark" className="delete-record-button" onClick={() => handleDeleteRecord(record)}>DELETE</Button>
+        </td>
       </tr>
     )
   })
@@ -94,6 +116,7 @@ function LiftCard({ lift, filteredRecords }) {
                   </select>
                   RM
                 </th>
+                <th>DELETE RECORD</th>
               </tr>
             </thead>
             <tbody>
