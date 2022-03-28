@@ -15,12 +15,10 @@ function SignUpForm({ onLogin, toggleLoginPage }) {
   const [height, setHeight] = useState("")
   const [bodyweight, setBodyweight] = useState("")
   const [errors, setErrors] = useState([]);
-  const [isLoading, setIsLoading] = useState(false);
 
   function handleSubmit(e) {
     e.preventDefault()
     setErrors([])
-    setIsLoading(true)
     fetch('/signup', {
       method: "POST",
       headers: {
@@ -38,7 +36,6 @@ function SignUpForm({ onLogin, toggleLoginPage }) {
       })
     })
       .then(r => {
-        setIsLoading(false);
         if (r.ok) {
           r.json().then(user => onLogin(user))
         } else {

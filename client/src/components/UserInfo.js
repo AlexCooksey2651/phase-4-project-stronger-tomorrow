@@ -47,6 +47,16 @@ function UserInfo({ userInfo, toggleProfilePage, handleLogout }) {
                         <Form.Label><b>EMAIL ADDRESS:</b></Form.Label>
                         <Form.Control disabled type="email" placeholder="Enter email" value={email} />
                     </Form.Group>
+
+                    {/* <Form.Group className="mb-3" controlId="formBasicEmail">
+                        <Form.Label><b>PASSWORD:</b></Form.Label>
+                        <Form.Control disabled type="email" placeholder="Password" value={password_digest} />
+                    </Form.Group>
+
+                    <Form.Group className="mb-3" controlId="formBasicEmail">
+                        <Form.Label><b>PASSWORD CONFIRMATION:</b></Form.Label>
+                        <Form.Control disabled type="email" placeholder="Enter email" value={password_digest} />
+                    </Form.Group> */}
                 </fieldset>
                 <Stack gap={2} className="col-md-5 mx-auto">
                     <Button variant="light" onClick={() => toggleProfilePage()}>

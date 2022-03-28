@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { useHistory } from "react-router-dom"
+// import { useHistory } from "react-router-dom"
 import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
 import Container from 'react-bootstrap/Container'
@@ -10,12 +10,10 @@ function LoginForm({ onLogin, toggleLoginPage }) {
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
   const [errors, setErrors] = useState([]);
-  const [isLoading, setIsLoading] = useState(false);
   // const history = useHistory()
 
   function handleSubmit(e) {
     e.preventDefault()
-    setIsLoading(true);
     fetch('/login', {
       method: "POST",
       headers: {
@@ -29,7 +27,6 @@ function LoginForm({ onLogin, toggleLoginPage }) {
       ),
     })
       .then(r => {
-        setIsLoading(false)
         if (r.ok) {
           r.json().then(user => {
             onLogin(user)

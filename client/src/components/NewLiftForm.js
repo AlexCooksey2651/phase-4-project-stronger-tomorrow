@@ -12,8 +12,7 @@ function NewLiftForm() {
   const [reps, setReps] = useState("")
   const [weight, setWeight] = useState("")
   const [lifts, setLifts] = useState([])
-  const [errors, setErrors] = useState([]);
-  const [isLoading, setIsLoading] = useState(false);
+  const [errors, setErrors] = useState([])
 
 
   useEffect(() => {
@@ -24,7 +23,6 @@ function NewLiftForm() {
 
   function handleSubmit(e) {
     e.preventDefault()
-    setIsLoading(true)
     fetch('/lift_sessions', {
       method: "POST",
       headers: {
@@ -38,7 +36,6 @@ function NewLiftForm() {
       })
     })
       .then(r => {
-        setIsLoading(false)
         if (r.ok) {
           r.json().then(data => console.log(data))
           setErrors([])
