@@ -34,9 +34,10 @@ function EditProfileForm({ userInfo, toggleProfilePage, handleUpdateUser }) {
                 if (r.ok) {
                     r.json().then(user => handleUpdateUser(user))
                     toggleProfilePage()
-                } else {
-                    r.json().then(data => setErrors(data.errors))
-                }
+                } 
+                // else {
+                //     r.json().then(data => setErrors(data.errors))
+                // }
             })
         // toggleProfilePage()
     }
