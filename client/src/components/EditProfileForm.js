@@ -30,16 +30,21 @@ function EditProfileForm({ userInfo, toggleProfilePage, handleUpdateUser }) {
                 email
             })
         })
+
             .then(r => {
                 if (r.ok) {
                     r.json().then(user => handleUpdateUser(user))
                     toggleProfilePage()
-                } 
-                // else {
-                //     r.json().then(data => setErrors(data.errors))
-                // }
+                }
+                else {
+                    r.json().then(data => setErrors(data.errors))
+                }
             })
-        // toggleProfilePage()
+        // .then(r => r.json())
+        // .then(user => {
+        //     handleUpdateUser(user)
+        //     toggleProfilePage()
+        // })    
     }
 
     return (
@@ -57,7 +62,7 @@ function EditProfileForm({ userInfo, toggleProfilePage, handleUpdateUser }) {
 
                 <Form.Group className="mb-3" controlId="formBasicAge">
                     <Form.Label><b>AGE:</b></Form.Label>
-                    <Form.Control type="number" min="18" max="99" placeholder="Age" value={age} onChange={e => setAge(e.target.value)} />
+                    <Form.Control type="number" min="12" max="99" placeholder="Age" value={age} onChange={e => setAge(e.target.value)} />
                 </Form.Group>
 
                 <Form.Group className="mb-3" controlId="formBasicHeight">
