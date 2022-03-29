@@ -10,5 +10,5 @@ class User < ApplicationRecord
     validates :height, presence: true, inclusion: { in: 36..96 } 
     validates :weight, presence: true, inclusion: { in: 1..1000 }
     validates :email, presence: true, uniqueness: true
-    # validates :password, confirmation: true, length: { in: 6..20 }
+    validates :password, length: { in: 6..20 }, on: :create
 end

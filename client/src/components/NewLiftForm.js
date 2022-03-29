@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react'
-import { useHistory } from "react-router";
 import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
 import Container from 'react-bootstrap/Container'
@@ -47,7 +46,7 @@ function NewLiftForm() {
           r.json().then(data => setErrors(data.errors));
         }
       })
-    
+
   }
 
   const current = new Date();
@@ -87,7 +86,7 @@ function NewLiftForm() {
           Submit
         </Button>
 
-        <br/> 
+        <br />
         {errors ? <Form.Group>
           {errors.map(error => {
             return (

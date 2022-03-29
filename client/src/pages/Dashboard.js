@@ -3,7 +3,7 @@ import Accordion from 'react-bootstrap/Accordion'
 import LiftCard from "../components/LiftCard"
 
 function Dashboard({ user }) {
-  const { lift_sessions } = user
+  const [liftSessions, setLiftSessions] = useState(user.lift_sessions)
   const [lifts, setLifts] = useState([])
 
   useEffect(() => {
@@ -14,7 +14,7 @@ function Dashboard({ user }) {
 
   
   const liftCards = lifts.map(lift => {
-    const filteredRecords = lift_sessions.filter(record => {
+    const filteredRecords = liftSessions.filter(record => {
       return record.lift.name === lift.name
     })
     return <LiftCard key={lift.id} lift={lift} filteredRecords={filteredRecords}/>

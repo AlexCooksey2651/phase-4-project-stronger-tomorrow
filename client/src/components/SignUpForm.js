@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { useHistory } from "react-router-dom"
 import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
 import Container from 'react-bootstrap/Container'
@@ -15,6 +16,7 @@ function SignUpForm({ onLogin, toggleLoginPage }) {
   const [height, setHeight] = useState("")
   const [bodyweight, setBodyweight] = useState("")
   const [errors, setErrors] = useState([]);
+  const history = useHistory()
 
   function handleSubmit(e) {
     e.preventDefault()
@@ -38,6 +40,7 @@ function SignUpForm({ onLogin, toggleLoginPage }) {
       .then(r => {
         if (r.ok) {
           r.json().then(user => onLogin(user))
+          history.push('/dashboard')
         } else {
           r.json().then(data => setErrors(data.errors))
         }

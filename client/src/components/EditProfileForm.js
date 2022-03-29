@@ -30,7 +30,6 @@ function EditProfileForm({ userInfo, toggleProfilePage, handleUpdateUser }) {
                 email
             })
         })
-
             .then(r => {
                 if (r.ok) {
                     r.json().then(user => handleUpdateUser(user))
