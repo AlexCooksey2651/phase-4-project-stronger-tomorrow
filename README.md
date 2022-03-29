@@ -34,6 +34,8 @@ Stronger Tomorrow app was built with a React frontend and Ruby on Rails for the 
 
 [Video Walkthrough](https://youtu.be/cKEERoxENFY)
 
+If you'd like to learn about some of the technical details of creating secure login functionality and user authorization, check out this [blog post](https://medium.com/@aecooksey2651/the-surprisingly-elaborate-process-of-creating-a-secure-authorized-account-exploring-user-crudin-ba95dac5fe2a).
+
 Background Image found [here](https://www.ironcompany.com/media/magefan_blog/2017/12/ed-coan-sumo.jpg).
 
 Calculations used to determine rep-maxes found [here](https://complementarytraining.net/set-and-rep-schemes-in-strength-training/)

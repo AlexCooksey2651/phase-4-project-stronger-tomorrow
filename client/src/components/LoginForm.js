@@ -30,7 +30,6 @@ function LoginForm({ onLogin, toggleLoginPage }) {
         if (r.ok) {
           r.json().then(user => {
             onLogin(user)
-            // history.push('/dashboard')
           })
         } else {
           r.json().then(data => setErrors(data.errors));

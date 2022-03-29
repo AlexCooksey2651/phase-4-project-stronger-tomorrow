@@ -5,16 +5,16 @@ import Nav from 'react-bootstrap/Nav'
 import Offcanvas from 'react-bootstrap/Offcanvas'
 
 function NavBar({ user, setUser, handleLogout }) {
-  // function handleLogout() {
-  //   fetch('/logout', {
-  //     method: "DELETE"
-  //   })
-  //     .then(r => {
-  //       if (r.ok) {
-  //         setUser(null)
-  //       }
-  //     })
-  // }
+  function handleLogout() {
+    fetch('/logout', {
+      method: "DELETE"
+    })
+      .then(r => {
+        if (r.ok) {
+          setUser(null)
+        }
+      })
+  }
 
   return (
     <Navbar bg="light" expand={false}>
