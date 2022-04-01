@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import Button from 'react-bootstrap/Button'
 import Table from 'react-bootstrap/Table'
 import Accordion from 'react-bootstrap/Accordion'
+import LiftChart from './LiftChart'
 
 function LiftCard({ lift, filteredRecords }) {
   const [targetReps, setTargetReps] = useState(1)
@@ -85,6 +86,8 @@ function LiftCard({ lift, filteredRecords }) {
           </span>
         </Accordion.Header>
         <Accordion.Body>
+          <LiftChart data={sortedRecords} targetReps={targetReps} repMaxConverter={repMaxConverter}/>
+          <br/>
           <Table striped bordered hover>
             <thead>
               <tr>

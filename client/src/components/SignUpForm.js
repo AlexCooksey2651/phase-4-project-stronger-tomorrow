@@ -61,7 +61,7 @@ function SignUpForm({ onLogin, toggleLoginPage }) {
           <Form.Control type="text" placeholder="Last name" value={lastName} onChange={e => setLastName(e.target.value)} />
         </Form.Group>
 
-        <Form.Group className="mb-3" controlId="formBasicAge">
+        <Form.Group className="mb-3" controlId="formBasicInput">
           <Form.Label><b>AGE:</b></Form.Label>
           <Form.Control type="number" min="12" max="99" placeholder="Age" value={age} onChange={e => setAge(e.target.value)} />
         </Form.Group>
