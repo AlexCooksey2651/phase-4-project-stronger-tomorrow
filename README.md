@@ -14,14 +14,15 @@ The app also features a profile page where users can view their profile informat
 
 ## Running the Application
 Enter `rails s` from the application folder in the terminal to run the backend server at [http://localhost:3000](http://localhost:3000).
+
 Navigate to a new tab in the terminal and enter `npm start --prefix client` to run the frontend at [http://localhost:4000](http://localhost:4000).
 
-This app is coded to use an older version of `react-router-dom` on the frontend. If necessary, navigate from the main project folder to the client folder by entering `cd client`, then enter `npm install react-router-dom@5.2.0`. For styling, React-Bootstrap is used; in the same `client` folder, enter `npm install react-bootstrap` to utilize these dependencies. For further information on utilizing React-Bootstrap, please visit [React-Bootstrap](https://react-bootstrap.github.io/).
+This app is coded to use an older version of `react-router-dom` on the frontend. If necessary, navigate from the main project folder to the client folder by entering `cd client`, then enter `npm install react-router-dom@5.2.0`. For styling, React-Bootstrap is used; in the same `client` folder, enter `npm install react-bootstrap` to utilize these dependencies. For further information on utilizing React-Bootstrap, please visit [React-Bootstrap](https://react-bootstrap.github.io/).The line charts present in the "Dashboard" page were created using [Recharts](https://recharts.org/en-US). Install this in the client folder by entering `npm install recharts`.
 
 ## Future Developments
 
 Some ideas for further development on this app:
--Include graphic representation of lifting performance over time.
+-Include graphic representation of lifting performance over time using Recharts (updated as of 4/5/22).
 -Allow users to record information for other exercises.
 -Include cardiovascular performance tracking (since cardiovascular exercise is typically tracked with different parameters than resistance training - e.g. speed/time/heart rate rather than weight/sets/repetitions - this would involve adding additional components.)
 -Calculations used to predict lifting performance for different numbers of repetitions have typically been based on male performance. It would be wonderful to allow users to specify their biological sex (if they wish) and use different calculations to predict lifting performance based on their profile.
