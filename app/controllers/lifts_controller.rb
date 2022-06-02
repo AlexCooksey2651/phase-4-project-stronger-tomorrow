@@ -3,4 +3,6 @@ class LiftsController < ApplicationController
         lifts = Lift.all
         render json: lifts
     end
+
+    private
 end

@@ -4,7 +4,7 @@ import Container from 'react-bootstrap/Container'
 import Nav from 'react-bootstrap/Nav'
 import Offcanvas from 'react-bootstrap/Offcanvas'
 
-function NavBar({ user, setUser, handleLogout }) {
+function NavBar({ setUser, handleLogout }) {
   function handleLogout() {
     fetch('/logout', {
       method: "DELETE"
