@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+// import { useHistory } from 'react-router-dom'
 import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
 import Container from 'react-bootstrap/Container'
@@ -12,6 +13,7 @@ function NewLiftForm() {
   const [weight, setWeight] = useState("")
   const [lifts, setLifts] = useState([])
   const [errors, setErrors] = useState([])
+  // const history = useHistory()
 
 
   useEffect(() => {
@@ -42,6 +44,7 @@ function NewLiftForm() {
           setDate("")
           setReps("")
           setWeight("")
+          // history.push("/dashboard")
         } else {
           r.json().then(data => setErrors(data.errors));
         }

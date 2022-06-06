@@ -76,7 +76,7 @@ function EditProfileForm({ userInfo, toggleProfilePage, handleUpdateUser }) {
 
                 <Stack gap={2} className="col-md-5 mx-auto">
                     <Button variant="light" type="submit">
-                        Submit
+                        Confirm
                     </Button>
                     <Button variant="light" onClick={() => toggleProfilePage()}>
                         Cancel
