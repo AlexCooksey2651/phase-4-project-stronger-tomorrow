@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import Button from 'react-bootstrap/Button'
 import Table from 'react-bootstrap/Table'
+import Stack from 'react-bootstrap/Stack'
 import Accordion from 'react-bootstrap/Accordion'
 import LiftChart from './LiftChart'
 
@@ -41,7 +42,9 @@ function LiftCard({ lift, filteredRecords }) {
         <td>{record.repetitions}</td>
         <td>{parseInt(repMaxConverter(record.weight, record.repetitions, targetReps))} pounds</td>
         <td>
-          <Button size="sm" variant="outline-dark" className="delete-record-button" onClick={() => handleDeleteRecord(record)}>DELETE</Button>
+          <Stack gap={2} className="col-md-5 mx-auto">
+            <Button size="sm" variant="outline-dark" className="delete-record-button" onClick={() => handleDeleteRecord(record)}>DELETE</Button>
+          </Stack>  
         </td>
       </tr>
     )
