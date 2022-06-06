@@ -19,7 +19,6 @@ ActiveRecord::Schema.define(version: 2022_03_17_224003) do
     t.integer "user_id"
     t.integer "lift_id"
     t.date "date"
-    t.string "lift"
     t.integer "repetitions"
     t.integer "weight"
     t.datetime "created_at", precision: 6, null: false
